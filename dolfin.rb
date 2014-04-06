@@ -58,11 +58,13 @@ class Dolfin < Formula
     ENV['PETSC_DIR'] = Formula.factory('petsc').prefix
     ENV['PETSC_ARCH'] = 'arch-darwin-c-opt'
     ENV['SLEPC_DIR'] = Formula.factory('slepc').prefix
+    ENV['TAO_DIR'] = Formula.factory('tao').prefix
     ENV['PARMETIS_DIR'] = Formula.factory('parmetis').prefix
+    ENV['UMFPACK_DIR'] = Formula.factory('suite-sparse').prefix
+    opoo ENV['UMFPACK_DIR']
 
     # ENV['SCOTCH_DIR'] = Formula.factory('scotch').prefix
     # ENV['PASTIX_DIR'] = Formula.factory('pastix').prefix
-    # #ENV['TAO_DIR'] = Formula.factory('tao').prefix
     # ENV['CPPUNIT_DIR'] = Formula.factory('cppunit').prefix
     # ENV['CGAL_DIR'] = Formula.factory('cgal').prefix
     # This is necessary to discover CGAL.
