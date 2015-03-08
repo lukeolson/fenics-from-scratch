@@ -1,9 +1,9 @@
 require 'formula'
 
-class Ufl < Formula
+class Uflacs < Formula
   homepage 'https://bitbucket.org/fenics-project/ufl'
-  url 'https://bitbucket.org/fenics-project/ufl/downloads/ufl-1.5.0.tar.gz'
-  sha1 'ddd7d2ad61af9774f2854a4ca729cce6178140a8'
+  url 'https://bitbucket.org/fenics-project/uflacs/downloads/uflacs-1.5.0.tar.gz'
+  sha1 '6b21db6e8ebc335408ceb4b5ae27dc0eb1cbc4da'
 
   depends_on :python
   depends_on 'numpy' => :python

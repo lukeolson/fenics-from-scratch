@@ -8,10 +8,10 @@ class PetscFenics < Formula
 
   option 'without-check', 'Skip build-time tests (not recommended)'
 
-  depends_on :mpi => :cc
-  depends_on 'cmake' => :build
+  depends_on :mpi => [:cc, :cxx, :f77, :f90]
   depends_on :fortran
   depends_on :x11 => MacOS::X11.installed? ? :recommended : :optional
+  depends_on 'cmake' => :build
 
   def install
     ENV.deparallelize
