@@ -43,7 +43,6 @@ class Dolfin < Formula
     # ENV['TAO_DIR'] = Formula['tao'].prefix
     # ENV['SCOTCH_DIR'] = Formula.factory('scotch').prefix
     # ENV['PASTIX_DIR'] = Formula.factory('pastix').prefix
-    # #ENV['TAO_DIR'] = Formula.factory('tao').prefix
     # ENV['CPPUNIT_DIR'] = Formula.factory('cppunit').prefix
     # ENV.append_to_cflags '-frounding-math'
 

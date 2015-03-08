@@ -12,6 +12,11 @@ class PetscFenics < Formula
   depends_on :fortran
   depends_on :x11 => MacOS::X11.installed? ? :recommended : :optional
   depends_on 'cmake' => :build
+  depends_on 'metis' => :optional
+  depends_on 'parmetis' => :optional
+  depends_on 'mumps' => :optional
+  depends_on 'scalapack' => :optional
+  depends_on 'suite-sparse' => :optional
 
   def install
     ENV.deparallelize
@@ -19,12 +24,12 @@ class PetscFenics < Formula
     petsc_arch = 'arch-darwin-c-opt'
     args = ["--with-debugging=0", "--with-shared-libraries=1", "--prefix=#{prefix}/#{petsc_arch}"]
     args << "--with-x=0" if build.without? 'x11'
-    args << "--download-hypre"
-    args << "--download-metis"
-    args << "--download-parmetis"
-    args << "--download-mumps"
-    args << "--download-scalapack"
-    args << "--download-umfpack"
+    #args << "--download-hypre"
+    args << "--with-metis-dir=#{Formula["metis"].prefix}" if build.with? "metis"
+    args << "--with-parmetis-dir=#{Formula["parmetis"].prefix}" if build.with? "parmetis"
+    args << "--with-mumps-dir=#{Formula["mumps"].prefix}" if build.with? "mumps"
+    args << "--with-scalapack-dir=#{Formula["scalapack"].prefix}" if build.with? "scalapack"
+    args << "--with-umfpack-dir=#{Formula["suite-sparse"].prefix}" if build.with? "suite-sparse"
     ENV['PETSC_DIR'] = Dir.getwd  # configure fails if those vars are set differently.
     ENV['PETSC_ARCH'] = petsc_arch
     system "./configure", *args
